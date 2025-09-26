@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Button from '@/components/common/Button';
+import Header from '@/components/layout/Header'; // <-- ADDED: Import Header
 
 const AboutPage = () => {
   return (
@@ -7,6 +8,9 @@ const AboutPage = () => {
       <Head>
         <title>About</title>
       </Head>
+      
+      <Header />
+
       <main className="container mx-auto p-4 flex flex-col items-center min-h-screen">
         <h1 className="text-4xl font-bold text-gray-800 mt-10 mb-8">About Us</h1>
         <p className="text-center text-gray-600 max-w-2xl mb-12">

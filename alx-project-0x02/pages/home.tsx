@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import Card from '@/components/common/Card';
 import PostModal from '@/components/common/PostModal';
+import Header from '@/components/layout/Header'; // <-- ADDED: Import Header
 import { type CardProps, type NewPostData } from '@/interfaces';
 
 const initialPosts: CardProps[] = [
@@ -27,6 +28,8 @@ const HomePage = () => {
         <title>Home</title>
       </Head>
       
+      <Header />
+
       <main className="container mx-auto p-4">
         <div className="flex justify-between items-center mb-8 mt-4">
             <h1 className="text-4xl font-extrabold text-gray-800">Latest Posts</h1>
