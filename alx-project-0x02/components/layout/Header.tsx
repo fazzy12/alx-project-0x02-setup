@@ -1,5 +1,3 @@
-// components/layout/Header.tsx
-
 import Link from 'next/link';
 
 const Header = () => {
@@ -18,6 +16,9 @@ const Header = () => {
           </Link>
           <Link href="/posts">
             <a className="mx-3 hover:text-blue-400 transition duration-150">Posts</a>
+          </Link>
+          <Link href="/users"> {/* <-- ADDED: Users Link */}
+            <a className="mx-3 hover:text-blue-400 transition duration-150">Users</a>
           </Link>
         </div>
       </nav>
