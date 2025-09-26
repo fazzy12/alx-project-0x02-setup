@@ -4,7 +4,6 @@ import UserCard from '@/components/common/UserCard';
 import { type UserProps } from '@/interfaces';
 import { GetStaticProps } from 'next';
 
-// Define the type for the component's props
 interface UsersPageProps {
   users: UserProps[];
 }
@@ -22,7 +21,6 @@ const UsersPage: React.FC<UsersPageProps> = ({ users }) => {
 
         <div className="flex flex-wrap justify-center -m-4">
           {users.map((user) => (
-            // Pass all properties of the user object directly to the UserCard component
             <UserCard 
               key={user.id} 
               {...user} 
@@ -40,10 +38,12 @@ const UsersPage: React.FC<UsersPageProps> = ({ users }) => {
 
 export default UsersPage;
 
-// --- Data Fetching Function ---
+// ----------------------------------------------------------------------
+// DATA FETCHING FUNCTION: getStaticProps()
+// ----------------------------------------------------------------------
+
 export const getStaticProps: GetStaticProps<UsersPageProps> = async () => {
   try {
-    // Fetch data from the JSONPlaceholder users endpoint
     const response = await fetch('https://jsonplaceholder.typicode.com/users');
     if (!response.ok) {
       throw new Error(`Failed to fetch users: ${response.statusText}`);
@@ -54,7 +54,6 @@ export const getStaticProps: GetStaticProps<UsersPageProps> = async () => {
       props: {
         users: data,
       },
-      // You can enable ISR here if needed: revalidate: 60,
     };
   } catch (error) {
     console.error("GETSTATICPROPS ERROR (Users):", error);
